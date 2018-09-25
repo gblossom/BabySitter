@@ -1,12 +1,8 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BabySitterApp
 {
-  class Program
+  public class BabySitter
   {
     static void Main(string[] args)
     {
@@ -16,6 +12,13 @@ namespace BabySitterApp
       Console.ReadKey();
 
       // Go to http://aka.ms/dotnet-get-started-console to continue learning how to build a console app! 
+    }
+
+    public string PayForWorkFromTo(int fromtime, int totime)
+    {
+      if (fromtime < 1700)
+        return "Too Early";
+      return null;
     }
   }
 }

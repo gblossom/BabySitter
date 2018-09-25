@@ -1,5 +1,5 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using BabySitterApp;
 
 namespace UnitTest
 {
@@ -7,8 +7,10 @@ namespace UnitTest
   public class UnitTest1
   {
     [TestMethod]
-    public void TestMethod1()
+    public void BabysitterStartsNoEarlierThan1700()
     {
+      BabySitter bs = new BabySitter();
+      Assert.AreEqual("Too Early", bs.PayForWorkFromTo(1600, 400));
     }
   }
 }
