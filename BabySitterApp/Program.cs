@@ -20,17 +20,16 @@ namespace BabySitterApp
       int bedtime = 21;
       //Do math for full hours
       int newfromtime = (fromtime / 100);
-      Console.WriteLine(newfromtime);
+      if (newfromtime < 4) //before max late time?
+        newfromtime = newfromtime + 24;
       int newtotime = ((totime / 100) % 24);
-      if (totime % 100 > 0)
+      if (totime % 100 > 0) //whole hours only
         newtotime++;
-      Console.WriteLine(newtotime);
       if (newtotime < 17) //before minimum start time
         newtotime += 24;
-      Console.WriteLine(newtotime);
-      if (newfromtime < 17)
+      if (newfromtime < 17) //before 5:00 PM
         return "Too Early";
-      if (newtotime > 28) //rollover to next morning
+      if (newtotime > 28) //rollover to next morning 4:00 AM
         return "Too Late";
       int pay = 0;
       for (int idx = newfromtime; idx < newtotime; idx++)

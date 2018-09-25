@@ -26,5 +26,19 @@ namespace UnitTest
       BabySitter bs = new BabySitter();
       Assert.AreEqual("12", bs.PayForWorkFromTo(1700, 1800));
     }
+
+    [TestMethod]
+    public void BabysitterOnlyWorksOneHourDuringBedtime()
+    {
+      BabySitter bs = new BabySitter();
+      Assert.AreEqual("8", bs.PayForWorkFromTo(2100, 2200));
+    }
+
+    [TestMethod]
+    public void BabysitterOnlyWorksOneHourAfterMidnight()
+    {
+      BabySitter bs = new BabySitter();
+      Assert.AreEqual("16", bs.PayForWorkFromTo(0, 100));
+    }
   }
 }
