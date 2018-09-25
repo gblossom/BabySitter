@@ -18,6 +18,8 @@ namespace BabySitterApp
     {
       if (fromtime < 1700)
         return "Too Early";
+      if (totime > 400)
+        return "Too Late";
       return null;
     }
   }

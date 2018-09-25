@@ -12,5 +12,12 @@ namespace UnitTest
       BabySitter bs = new BabySitter();
       Assert.AreEqual("Too Early", bs.PayForWorkFromTo(1600, 400));
     }
+
+    [TestMethod]
+    public void BabysitterWorksNoLaterThan0400()
+    {
+      BabySitter bs = new BabySitter();
+      Assert.AreEqual("Too Late", bs.PayForWorkFromTo(1700, 500));
+    }
   }
 }
