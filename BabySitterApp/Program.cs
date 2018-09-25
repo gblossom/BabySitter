@@ -16,11 +16,33 @@ namespace BabySitterApp
 
     public string PayForWorkFromTo(int fromtime, int totime)
     {
-      if (fromtime < 1700)
+      //set bedtime as 9:00 PM
+      int bedtime = 21;
+      //Do math for full hours
+      int newfromtime = (fromtime / 100);
+      Console.WriteLine(newfromtime);
+      int newtotime = ((totime / 100) % 24);
+      if (totime % 100 > 0)
+        newtotime++;
+      Console.WriteLine(newtotime);
+      if (newtotime < 17) //before minimum start time
+        newtotime += 24;
+      Console.WriteLine(newtotime);
+      if (newfromtime < 17)
         return "Too Early";
-      if (totime > 400)
+      if (newtotime > 28) //rollover to next morning
         return "Too Late";
-      return null;
+      int pay = 0;
+      for (int idx = newfromtime; idx < newtotime; idx++)
+      {
+        if (idx < bedtime)
+          pay += 12;
+        else if (idx < 24)
+          pay += 8;
+        else
+          pay += 16;
+      }
+      return pay.ToString();
     }
   }
 }
